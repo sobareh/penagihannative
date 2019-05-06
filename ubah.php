@@ -31,13 +31,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ubah Data Komputer</title>
+    <title>Ubah Data Berkas</title>
 </head>
 <body>
-    <h1>Ubah Data Komputer</h1>
-    <form action="" method="post">
+    <h1>Ubah Data Berkas</h1>
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <input type="hidden" name="id" value="<?= $kmpt["id"]; ?>">
+            <input type="hidden" name="gambarLama" value="<?= $kmpt["gambar"]; ?>">
             <li>
                 <label for="sn">Serial Number : </label>
                 <input type="text" name="sn" id="sn" required value="<?= $kmpt["sn"]; ?>">
@@ -55,8 +56,10 @@
                 <input type="text" name="email" id="email" required value="<?= $kmpt["email"]; ?>">
             </li>
             <li>
-                <label for="gambar">Gambar : </label>
-                <input type="text" name="gambar" id="gambar" required value="<?= $kmpt["gambar"]; ?>">
+                <label for="gambar">Gambar : </label> 
+                <input type="file" name="gambar" id="gambar" >
+                <br>
+                <img src="img/<?=  $kmpt['gambar'];?>" alt="">
             </li>
             <li><button type="submit" name="submit" onclick="return confirm('Yakin Ubah Data?');">Ubah Data</button></li>
         </ul>

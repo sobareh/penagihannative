@@ -12,7 +12,7 @@
             } else {
                 echo "
                         <script>
-                        alert('data berhasil ditambahkan');
+                        alert('data tidak berhasil ditambahkan');
                         document.location.href = 'index.php';
                         </script>
                     ";
@@ -28,7 +28,7 @@
 </head>
 <body>
     <h1>Tambah Data Komputer</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="sn">Serial Number : </label>
@@ -48,7 +48,7 @@
             </li>
             <li>
                 <label for="gambar">Gambar : </label>
-                <input type="text" name="gambar" id="gambar" required>
+                <input type="file" name="gambar" id="gambar" >
             </li>
             <li><button type="submit" name="submit">Tambah Data</button></li>
         </ul>
