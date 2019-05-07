@@ -1,4 +1,11 @@
 <?php 
+    session_start();
+
+    if( !isset($_SESSION["login"]) ) {
+        header("Location: login.php");
+        exit;
+    }
+
     require 'functions.php';
     $data = query("SELECT * FROM komputer");
 
@@ -16,6 +23,7 @@
     <title>Aplikasi Penagihan</title>
 </head>
 <body>
+    <a href="logout.php">Logout</a>
     <h1>Data Komputer</h1>
 
     <a href="tambah.php">Tambah Data Komputer</a> 
