@@ -7,9 +7,11 @@
     }
 
     require 'functions.php';
+    $data = query("SELECT * FROM komputer");
     if( isset($_POST["cari"]) ) {
         $data = cari($_POST["keyword"]);
      } 
+    //  var_dump($data);
     
 ?>
 <!DOCTYPE html>
@@ -68,7 +70,6 @@
             </thead>
             <tbody>
                 <?php 
-            $data = query("SELECT * FROM komputer");
             $i = 1 ;
             foreach( $data as $row ) : ?>
                 <tr>
