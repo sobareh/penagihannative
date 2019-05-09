@@ -138,8 +138,7 @@
             <!-- <img class="profile-img" src="http://localhost/penagihannative/img/stumbleupon.png"
                 alt=""> -->
             <form class="form-signin" action="login.php" method="post">
-            <i class="fa fa-envelope"></i>
-            <input type="text" class="form-control" placeholder="username" name="username" id="username" required autofocus>
+            <input type="text" class="form-control" placeholder="username" name="username" id="username" autocomplete="off" required>
             <input type="password" class="form-control" placeholder="password" name="password" id="password" required>
             <br>
             <button class="btn btn-lg btn-dark btn-block" type="submit" name="login" id="login">

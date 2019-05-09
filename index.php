@@ -6,13 +6,11 @@
         exit;
     }
 
-    //require 'functions.php';
-    //$data = query("SELECT * FROM komputer");
-
-    //tombol cari ditekan
+    require 'functions.php';
     if( isset($_POST["cari"]) ) {
         $data = cari($_POST["keyword"]);
-    }
+     } 
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,11 +52,12 @@
             <input type="text" name="keyword" size="30" autofocus placeholder="masukkan keyword pencarian..."
                 autocomplete="off">
             <button type="submit" name="cari">Cari!</button>
+            <?php ?>
         </form>
         <br>
         <table class="table table-bordered datatabel">
             <thead class="thead-dark">
-                <tr align="center">
+                <tr class="tex-center">
                     <th>No.</th>
                     <th>Serial Number</th>
                     <th>Merek Komputer</th>
@@ -68,31 +67,26 @@
                 </tr>
             </thead>
             <tbody>
-            <?php 
-            require 'functions.php';
+                <?php 
             $data = query("SELECT * FROM komputer");
             $i = 1 ;
-            foreach( $data as $row ) {
-            ?>
+            foreach( $data as $row ) : ?>
                 <tr>
-                        <td><?= $i++; ?></td>
-                        <td><?= $row["sn"]; ?></td>
-                        <td><?= $row["merek"]; ?></td>
-                        <td><?= $row["model"]; ?></td>
-                        <td><?= $row["email"]; ?></td>
-                        <td>
-                            <a href="detail.php?id=<?= $row["id"];?>">Detail</a> |
-                            <a href="ubah.php?id=<?= $row["id"];?>">Ubah</a> |
-                            <a href="hapus.php?id=<?= $row["id"]; ?>"
-                                onclick="return confirm('Yakin Hapus Data?');">Hapus</a>
-                            <a class="btn btn-sm btn-warning" href="file/<?= $row['gambar']; ?>">Download</a>
-                        </td>
-                    </tr>
-                 
-             <?php
-              
-                }
-             ?>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row["sn"]; ?></td>
+                    <td><?= $row["merek"]; ?></td>
+                    <td><?= $row["model"]; ?></td>
+                    <td><?= $row["email"]; ?></td>
+                    <td>
+                        <a href="detail.php?id=<?= $row["id"];?>">Detail</a> |
+                        <a href="ubah.php?id=<?= $row["id"];?>">Ubah</a> |
+                        <a href="hapus.php?id=<?= $row["id"]; ?>"
+                            onclick="return confirm('Yakin Hapus Data?');">Hapus</a>
+                        <a class="btn btn-sm btn-warning" href="file/<?= $row['gambar']; ?>">Download</a>
+                    </td>
+                </tr>
+
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
