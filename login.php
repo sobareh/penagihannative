@@ -44,7 +44,7 @@
     <style>
  .body 
  {
-    background-color: #FEFDFD;
+    background-color: ;
  }
  .form-signin
  {

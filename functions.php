@@ -63,7 +63,7 @@
         //cek jika ukurannya terlalu besar
         if( $ukuranFile > 2097152 ) {
             echo "<script>
-            alert('ukuran gambarnya kegedean, maksimal 3mb ya!');
+            alert('ukuran gambarnya kegedean, maksimal 2mb ya!');
                 </script>";
             return false;
         }
@@ -129,5 +129,10 @@
                  ";
         
         return query($query);
+    }
+
+    function tampilkanUser() {
+        global $conn;
+        
     }
 ?>

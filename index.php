@@ -24,9 +24,10 @@
     <title>Halaman </title>
     <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="http://localhost/penagihannative/datatables/datatables.min.css" />
+    <style></style>
 </head>
 
-<body>
+<body class="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="">SMART</a>
