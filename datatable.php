@@ -25,7 +25,14 @@
 
 <body>
     <?php
-	include 'functions.php';
+    
+    session_start();
+    include 'functions.php';
+        
+     if( !isset($_SESSION["login"]) ) {
+         header("Location: login.php");
+         exit;
+     }
 	?>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
