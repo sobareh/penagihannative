@@ -41,7 +41,7 @@
                         <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="png.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>
+                        <a class="nav-link" href="datatable.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
