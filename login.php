@@ -40,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SMART - Login</title>
-    <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.css">
+    <link rel="stylesheet" href="http://10.1.14.232/penagihannative/css/bootstrap.css">
     <style>
             .body 
             {
@@ -134,8 +134,8 @@
         <br><br>
     <!-- <h1 class="text-center login-title">Login</h1> -->
         <div class="account-wall">
-        <h1 class="text-center mx-auto login-title"><img src="http://localhost/penagihannative/img/stumbleupon.png " class="ui image" width="80">&nbsp;Login</h1>
-            <!-- <img class="profile-img" src="http://localhost/penagihannative/img/stumbleupon.png"
+        <h1 class="text-center mx-auto login-title"><img src="http://10.1.14.232/penagihannative/img/stumbleupon.png " class="ui image" width="80">&nbsp;Login</h1>
+            <!-- <img class="profile-img" src="http://10.1.14.232/penagihannative/img/stumbleupon.png"
                 alt=""> -->
             <form class="form-signin" action="login.php" method="post">
             <input type="text" class="form-control" placeholder="username" name="username" id="username" autocomplete="off" required>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Dashboard - SMART</title>
+    <title>SMART</title>
 
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
@@ -35,7 +35,7 @@
      }
 	?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav class="navbar fixed-top navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
 
             <a class="navbar-brand" href="#"><img src="/smart/32.png" alt="" sizes="" srcset=""> SMART</a>
@@ -51,7 +51,7 @@
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="png.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>
+                        <a class="nav-link" href="datatable.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -74,39 +74,48 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid mt-5">
 
-        <div class="card">
+        <div class="card mt-3">
             <div class="card-body">
 
-                <h3>Data Komputer</h3>
-                <p class="text-muted">Semua Data Komputer</p>
+                <h3>Data RBK</h3>
+                <p class="text-muted">Semua Data Ruang Berkas Penagihan</p>
 
                 <hr>
-
+                <div class="col-sm-12 table-responsive-sm">
                 <table class="table table-bordered table-hover table-striped table-saya">
                     <thead class="thead-dark text-center">
-                        <tr>
+                        <tr >
                             <th>No</th>
-                            <th>Serial Number</th>
-                            <th>Merek</th>
-                            <th>Model</th>
-                            <th>Email</th>
+                            <th>NPWP</th>
+                            <th>Nama Wajib Pajak</th>
+                            <th>No. RBK</th>
+                            <th>No. Ruang</th>
+                            <th>No. Box</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <?php
 					$no = 1;
-					$warga = query("SELECT * FROM komputer");
-					foreach($warga as $row){
+					$data = query("SELECT * FROM datarbk");
+					foreach($data as $row){
 					?>
                         <tr>
                             <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $row["sn"]; ?></td>
-                            <td><?= $row["merek"]; ?></td>
-                            <td><?= $row["model"]; ?></td>
-                            <td><?= $row["email"]; ?></td>
+                            <td><?= $row["npwp"]; ?></td>
+                            <td><?= $row["nama"]; ?></td>
+                            <td><?= $row["norbk"]; ?></td>
+                            <td><?= $row["noruang"]; ?></td>
+                            <td><?= $row["nobox"]; ?></td>
+                            <td>
+                                <a class="btn btn-sm btn-info" href="detail.php?id=<?= $row["id"];?>"><i class="fas fa-file-alt"></i></a> 
+                                <a class="btn btn-sm btn-warning" href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a> 
+                                <a class="btn btn-sm btn-danger" href="hapus.php?id=<?= $row["id"]; ?>"
+                                    onclick="return confirm('Yakin Hapus Data?');"><i class="fas fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                         <?php 
 					}
@@ -116,7 +125,7 @@
                       $(document).ready(function () {
                     $(".table-saya").DataTable(); }) </script>
                 </table>
-
+                </div>
             </div>
         </div>
 

@@ -139,18 +139,48 @@
     function tambahdata($data) {
         global $conn;
         
-        $npwp     = htmlspecialchars($data["npwp"]);
-        $nama  = htmlspecialchars($data["nama"]);
-        $noberkas  = htmlspecialchars($data["norbk"]);
-        $noruang  = htmlspecialchars($data["noruang"]);
-        $nobox  = htmlspecialchars($data["nobox"]);
-        $alamat  = htmlspecialchars($data["alamat"]);
+        $npwp       = htmlspecialchars($data["npwp"]);
+        $nama       = htmlspecialchars($data["nama"]); 
+        $noberkas   = htmlspecialchars($data["norbk"]);
+        $noruang    = htmlspecialchars($data["noruang"]);
+        $nobox      = htmlspecialchars($data["nobox"]);
+        $alamat     = htmlspecialchars($data["alamat"]);
         $kelurahan  = htmlspecialchars($data["kelurahan"]);
-        $keterangan  = htmlspecialchars($data["keterangan"]);
+        $keterangan = htmlspecialchars($data["keterangan"]);
 
         $query = "INSERT INTO datarbk 
                         VALUES
                         ('', '$noberkas','$npwp', '$nama', '$noruang', '$nobox', '$alamat', '$kelurahan','$keterangan')
+                    ";
+        mysqli_query($conn, $query); 
+
+        return mysqli_affected_rows($conn);
+    }
+
+    function ubahData($data) {
+        global $conn;
+        
+        $id     = $data["id"];
+        $npwp       = htmlspecialchars($data["npwp"]);
+        $nama       = htmlspecialchars($data["nama"]); 
+        $noberkas   = htmlspecialchars($data["norbk"]);
+        $noruang    = htmlspecialchars($data["noruang"]);
+        $nobox      = htmlspecialchars($data["nobox"]);
+        $alamat     = htmlspecialchars($data["alamat"]);
+        $kelurahan  = htmlspecialchars($data["kelurahan"]);
+        $keterangan = htmlspecialchars($data["keterangan"]);
+        
+        
+        $query = "UPDATE datarbk SET 
+                        norbk = '$noberkas',
+                        npwp = '$npwp',
+                        nama = '$nama',
+                        noruang = '$noruang',
+                        nobox = '$nobox',
+                        alamat = '$alamat',
+                        kelurahan = '$kelurahan',
+                        keterangan = '$keterangan'
+                    WHERE id = $id
                     ";
         mysqli_query($conn, $query); 
 

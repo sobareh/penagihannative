@@ -86,12 +86,11 @@
                     <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="npwp">NPWP</label>
-                        <input type="text" class="form-control" id="npwp" name="npwp" placeholder="" required>
+                        <input type="text" class="form-control" id="npwp" name="npwp" required>
                     </div>
                     <div class="form-group col-md-8">
                         <label for="nama">Nama WP</label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="" value=""
-                            readonly>
+                        <input type="text" class="form-control" id="nama" name="nama" disabled>
                     </div>
                     </div>
                     <div class="form-row">
@@ -124,12 +123,33 @@
                     </div>
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </form>
+                <script src="http://localhost/penagihannative/js/jqueryslim.min.js"></script>
+                <script>
+                    $(function () {
+                        $("#npwp").change(function () {
+                            var npwp = $("#npwp").val();
+
+                            $.ajax({
+                                url: 'ajax_isiotomatis.php',
+                                type: 'POST',
+                                dataType: 'json',
+                                data: {
+                                    'npwp': npwp
+                                },
+                                success: function (datarbk) {
+                                    $("#nama").val(datarbk['nama']);
+                                }
+                            });
+                        });
+
+                    });
+                </script>
             </div>
         </div>
     </div>
-    <script src="http://localhost/penaghannative/js/jqueryslim.min.js"></script>
-    <script src="http://localhost/penaghannative/js/popper.min.js"></script>
-    <script src="http://localhost/penaghannative/js/bootstrap.min.js"></script>
+    <script src="http://localhost/penagihannative/js/jqueryslim.min.js"></script>
+    <script src="http://localhost/penagihannative/js/popper.min.js"></script>
+    <script src="http://localhost/penagihannative/js/bootstrap.min.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.inputmask.bundle.js"></script>
     <script>

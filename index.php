@@ -1,17 +1,16 @@
-<?php 
-    session_start();
-    
-    if( !isset($_SESSION["login"]) ) {
-        header("Location: login.php");
-        exit;
-    }
+<?php
+     session_start();
+        
+     if( !isset($_SESSION["login"]) ) {
+         header("Location: login.php");
+         exit;
+     }
 
     require 'functions.php';
-    $data = query("SELECT * FROM komputer");
-    if( isset($_POST["cari"]) ) {
-        $data = cari($_POST["keyword"]);
-     } 
-    //  var_dump($data);
+    $username = 910222897 ;
+    $data = mysqli_query($conn,"SELECT * FROM user where username = $username");
+    $datauser = mysqli_fetch_assoc($data);
+    // var_dump($data);
     
 ?>
 <!DOCTYPE html>
@@ -21,85 +20,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Halaman </title>
-    <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost/penagihannative/datatables/datatables.min.css" />
+    <title>SMART | Home</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
+    <link rel="stylesheet" href="/penagihannative/css/bootstrap.css">
+    <link rel="stylesheet" href="/penagihannative/css/bootstrap.min.css">
     <style></style>
 </head>
-
 <body class="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="">SMART</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#"><img src="/smart/32.png" alt="" sizes="" srcset=""> SMART</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="">Home</a>
-                    <a class="nav-item nav-link" href="">Data RBK</a>
-                    <a class="nav-item nav-link" href="">About</a>
-                </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="datatable.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-briefcase"></i> Master Data
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ganti_password.php"><i class="fa fa-lock"></i> Ganti Password</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <a href="logout.php">Logout</a>
-        <h1>Data Komputer</h1>
 
-        <a href="tambah.php">Tambah Data Komputer</a>
-        <br><br>
+<div class="container jumbotron mt-5">
+  <h1 class="display-4">Selamat Datang di Aplikasi SMART</h1>
+  <p class="lead">Hallo <b><?php echo $datauser['username']?></b>, Selamat Datang Kembali di halaman aplikasi SMART </p>
+  <hr class="my-4">
+  <p>Aplikasi yang dimaksudkan untuk mempermudah Pelaksana Seksi Penagihan dalam mencari dan mengupdate Data yang ada di Ruang Berkas Penagihan.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 
-        <form action="" method="post">
-            <input type="text" name="keyword" size="30" autofocus placeholder="masukkan keyword pencarian..."
-                autocomplete="off">
-            <button type="submit" name="cari">Cari!</button>
-            <?php ?>
-        </form>
-        <br>
-        <table class="table table-bordered datatabel">
-            <thead class="thead-dark">
-                <tr class="tex-center">
-                    <th>No.</th>
-                    <th>Serial Number</th>
-                    <th>Merek Komputer</th>
-                    <th>Model Komputer</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-            $i = 1 ;
-            foreach( $data as $row ) : ?>
-                <tr>
-                    <td><?= $i++; ?></td>
-                    <td><?= $row["sn"]; ?></td>
-                    <td><?= $row["merek"]; ?></td>
-                    <td><?= $row["model"]; ?></td>
-                    <td><?= $row["email"]; ?></td>
-                    <td>
-                        <a href="detail.php?id=<?= $row["id"];?>">Detail</a> |
-                        <a href="ubah.php?id=<?= $row["id"];?>">Ubah</a> |
-                        <a href="hapus.php?id=<?= $row["id"]; ?>"
-                            onclick="return confirm('Yakin Hapus Data?');">Hapus</a>
-                        <a class="btn btn-sm btn-warning" href="file/<?= $row['gambar']; ?>">Download</a>
-                    </td>
-                </tr>
+    <script type="text/javascript" src="http://localhost/penaghannative/js/jqueryslim.min.js" ></script>
+    <script type="text/javascript" src="http://localhost/penaghannative/js/popper.min.js" ></script>
+    <script src="/js/bootstrap.min.js"></script>
 
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <script type="text/javascript" src="C:\xampp\htdocs\penagihannative\jquery\src\jquery.js"></script>
-    <script type="text/javascript" src="http://localhost/penagihannative/js/bootstrap.js"></script>
-    <script type="text/javascript" src="http://localhost/penagihannative/datatables/datatables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('datatabel').DataTable();
-        });
-    </script>
 </body>
-
 </html>
