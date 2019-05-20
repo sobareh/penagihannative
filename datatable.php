@@ -111,8 +111,7 @@
                                     <a class="btn btn-sm btn-warning tombol-uba" title="Ubah Data"
                                         href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a>
                                     <a class="btn btn-sm btn-danger notif" id="delete_product" title="Hapus Data"
-                                        href="hapus.php?id=<?=$row['id']; ?>" 
-                                                onclick="">
+                                       data-id="<?= $id; ?>" href="javascript:void(0)">
                                                 <i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
@@ -133,39 +132,17 @@
     </div>
     <script src="js/sweetalert2.all.min.js"></script>
     <script>
-        jQuery(document).ready(function($){
-            $('.notif').on('click',function(){
-                var getLink = $(this).attr('href');
-                swal({
-                        type: 'warning',
-                        title: 'Yakin Hapus Data',
-                        text: 'Data akan terhapus secara Permanen.',
-                        //html: true,
-                        confirmButtonColor: '#d9534f',
-                        showCancelButton: true,
-                        },function(){
-                        window.location.href = getLink;
-                    });
-                return true;
-            });
-        });
-	 
-    </script>
-    <script src="sweetalertfunction.js"></script>
-    <!-- <script>
             $(document).ready(function(){
-            
-            // readProducts(); /* it will load products when document loads */
             
             $(document).on('click', '#delete_product', function(e){
                 
-                var productId = $(this).data('id');
-                SwalDelete(productId);
+                var Id = $(this).data('id');
+                SwalDelete(Id);
                 e.preventDefault();
             });
             
         });
-        function SwalDelete(productId){
+        function SwalDelete(Id){
 		
 		swal({
 			title: 'Are you sure?',
@@ -183,7 +160,7 @@
 			     $.ajax({
 			   		url: 'hapus.php',
 			    	type: 'POST',
-			       	data: 'hapus='+productId,
+			       	data: 'hapus='+Id,
 			       	dataType: 'json'
 			     })
 			     .done(function(response){
@@ -199,9 +176,9 @@
 		});	
     }
    function readProducts(){
-    $('html').delay(3000).reload();	
+    setTimeout(function(){window.location.reload(true);},3000);
 	}
-    </script> -->
+    </script>
 </body>
 
 </html>
