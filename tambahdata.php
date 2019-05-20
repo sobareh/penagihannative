@@ -1,21 +1,19 @@
 <?php
-     require 'functions.php';
+     require 'functions.php'; ?>
+     <script src="js/sweetalert2.all.min.js"></script>
+    <?php 
      if( isset($_POST["submit"]) ) {
             //cek apakah data berhasil ditambahkan atau tidak
             if( tambahdata($_POST) > 0 ) {
-                echo "
-                        <script>
-                        alert('data berhasil ditambahkan');
-                        document.location.href = 'index.php';
-                        </script>
-                    ";
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Success","Data Berhasil ditambahkan","success");';
+                echo '}, 500);</script>';
+                echo '<meta http-equiv="Refresh" content="3; URL=datatable.php">';
             } else {
-                echo "
-                        <script>
-                        alert('data tidak berhasil ditambahkan');
-                        document.location.href = 'index.php';
-                        </script>
-                    ";
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Error","Data tidak berhasil ditambahkan","warning");';
+                echo '}, 500);</script>';
+                echo '<meta http-equiv="Refresh" content="3; URL=tambahdata.php">';
             }
     }
 ?>
@@ -113,6 +111,7 @@
     <script src="http://localhost/penagihannative/js/bootstrap.min.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.inputmask.bundle.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#npwp').inputmask('999999999-999.999');

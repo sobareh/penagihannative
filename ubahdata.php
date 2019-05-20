@@ -6,8 +6,10 @@
         exit;
     }
 
-    require 'functions.php';
+    require 'functions.php'; ?>
+    <script src="js/sweetalert2.all.min.js"></script>
 
+    <?php 
     // ambil data di URL
     $id = $_GET["id"];
 
@@ -18,22 +20,18 @@
 
      if( isset($_POST["submit"]) ) {
             //cek apakah data berhasil diubah atau tidak
-            if( ubahData($_POST) > 0 ) {
-                echo "
-                        <script>
-                        alert('data berhasil diubah!');
-                        document.location.href = 'index.php';
-                        </script>
-                    ";
-            } else {
-                echo "
-                        <script>
-                        alert('data gagal diubah!');
-                        document.location.href = 'index.php';
-                        </script>
-                    ";
+            if( ubahData($_POST) > 0 )  {
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Success","Data Berhasil diubah","success");';
+                echo '}, 500);</script>';
+                echo '<meta http-equiv="Refresh" content="3; URL=datatable.php">';
+            } else{
+                echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Error","Data tidak berhasil diubah","warning");';
+                echo '}, 500);</script>';
+                echo '<meta http-equiv="Refresh" content="3; URL=datatable.php">';
             }
-    }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +51,7 @@
     <div class="container-fluid mt-2 text-center">
         <div class="card col-md-6 mt-3 text-justify mx-auto">
             <div class="card-body">
-                <h3>Input Data</h3>
+                <h3>Update Data</h3>
                 <small>Ruang Berkas Penagihan</small>
                 <hr>
                 <form method="post">
@@ -97,7 +95,7 @@
                         <label for="keterangan">Keterangan</label>
                         <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?php echo $data["keterangan"]; ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary" name="submit" onclick="return confirm('Yakin Ubah Data?');">Ubah Data</button>
+                    <button type="submit" class="btn btn-primary" id="submit" name="submit" >Ubah Data</button>
                 </form>
             </div>
         </div>
@@ -107,6 +105,8 @@
     <script src="http://localhost/penagihannative/js/bootstrap.min.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.js"></script>
     <script src="http://localhost/penagihannative/js/jquery.inputmask.bundle.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="sweetalertfunction.js"></script>
     <script>
         $(document).ready(function () {
             $('#npwp').inputmask('999999999-999.999');

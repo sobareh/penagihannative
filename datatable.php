@@ -110,8 +110,10 @@
                                         href="detail.php?id=<?= $row["id"];?>"><i class="fas fa-file-alt"></i></a>
                                     <a class="btn btn-sm btn-warning tombol-uba" title="Ubah Data"
                                         href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-sm btn-danger" id="delete_product" title="Hapus Data"
-                                        data-id="<?= $id; ?>" href="javascript:void(0)"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-sm btn-danger notif" id="delete_product" title="Hapus Data"
+                                        href="hapus.php?id=<?=$row['id']; ?>" 
+                                                onclick="">
+                                                <i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             <?php 
@@ -130,8 +132,27 @@
 
     </div>
     <script src="js/sweetalert2.all.min.js"></script>
-    <script src="sweetalertfunction.js"></script>
     <script>
+        jQuery(document).ready(function($){
+            $('.notif').on('click',function(){
+                var getLink = $(this).attr('href');
+                swal({
+                        type: 'warning',
+                        title: 'Yakin Hapus Data',
+                        text: 'Data akan terhapus secara Permanen.',
+                        //html: true,
+                        confirmButtonColor: '#d9534f',
+                        showCancelButton: true,
+                        },function(){
+                        window.location.href = getLink;
+                    });
+                return true;
+            });
+        });
+	 
+    </script>
+    <script src="sweetalertfunction.js"></script>
+    <!-- <script>
             $(document).ready(function(){
             
             // readProducts(); /* it will load products when document loads */
@@ -180,7 +201,7 @@
    function readProducts(){
     $('html').delay(3000).reload();	
 	}
-    </script>
+    </script> -->
 </body>
 
 </html>

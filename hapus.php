@@ -1,35 +1,27 @@
-<?php
-    session_start();
-    
-    if( !isset($_SESSION["login"]) ) {
-        header("Location: login.php");
-        exit;
-    }
-    
-    // //require 'functions.php';
-    // $id = $_GET["id"];
-
-    // hapus($id) ;
-    // header('location:index.php');
-
-    header('Content-type: application/json; charset=UTF-8');
-	
-	$response = array();
-	
-	if ($_POST['hapus']) {
+<?php 
+	session_start();
 		
-		require_once 'dbconfig.php';
-		
-		$pid = intval($_POST['hapus']);
-		$query = "DELETE FROM datarbk WHERE id=:id";
-		$stmt = $DBcon->prepare( $query );
-		$stmt->execute(array(':id'=>$pid));
-		if ($stmt) {
-			$response['status']  = 'success';
-			$response['message'] = 'Product Deleted Successfully ...';
-		} else {
-			$response['status']  = 'error';
-			$response['message'] = 'Unable to delete product ...';
-		}
-		echo json_encode($response);
+	if( !isset($_SESSION["login"]) ) {
+		header("Location: login.php");
+		exit;
 	}
+
+	require 'functions.php'; ?>
+	<script src="js/sweetalert2.all.min.js"></script>
+	<link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.min.css">
+<?php
+	$id = $_GET["id"];
+	//$data = query("SELECT * FROM datarbk WHERE id = $id")[0];
+	if( hapus($id) > 0 ) {
+		echo '<script type="text/javascript">';
+                echo 'setTimeout(function () { swal("Success","Data Berhasil dihapus","success");';
+                echo '}, 500);</script>';
+                echo '<meta http-equiv="Refresh" content="3; URL=datatable.php">';
+	} else {
+		echo '<script type="text/javascript">';
+		echo 'setTimeout(function () { swal("Gagal","Data tidak berhasil dihapus","warning");';
+		echo '}, 500);</script>';
+		echo '<meta http-equiv="Refresh" content="3; URL=datatable.php">';
+	}
+?>
