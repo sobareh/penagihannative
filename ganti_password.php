@@ -4,14 +4,7 @@
      if( !isset($_SESSION["login"]) ) {
          header("Location: login.php");
          exit;
-     }
-
-    require 'functions.php';
-    $username = 910222897 ;
-    $data = mysqli_query($conn,"SELECT * FROM user where username = $username");
-    $datauser = mysqli_fetch_assoc($data);
-    // var_dump($data);
-    
+	 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,17 +56,47 @@
         </div>
     </nav>
 
-<div class="container jumbotron mt-5">
-  <h1 class="display-4">Selamat Datang di Aplikasi SMART</h1>
-  <p class="lead">Hallo <b><?php echo $datauser['username']?></b>, Selamat Datang Kembali di halaman aplikasi SMART </p>
-  <hr class="my-4">
-  <p class="lead">Aplikasi yang dimaksudkan untuk mempermudah Pelaksana Seksi Penagihan dalam mencari dan mengupdate Data yang ada di Ruang Berkas Penagihan KPP Pratama Medan Barat.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+<div class="container mt-3">
+
+	<div class="row">
+		<div class="col-md-6 mx-auto">
+			
+			<div class="card">
+				<div class="card-body">
+
+					<?php 
+					if(isset($_GET['pesan'])){
+						if($_GET['pesan']=="password"){
+							//echo "<div class='alert alert-success'>Password telah diganti.</div>";
+						}
+					}
+					?>
+
+					<h3>Ganti Password</h3>
+					<p class="text-muted">Ganti Password Admin</p>
+
+					<hr>
+
+					<form action="ganti_password_aksi.php" method="post">
+
+						<div class="form-group">
+							<label>Masukkan Password Baru</label>
+							<input type="password" name="password" required="required" class="form-control">
+						</div>
+
+						<input type="submit" name="submit" id="submit" value="Simpan" class="btn btn-primary btn-sm" onclick="Swal('Ubah Password','Berhasil','success')">
+
+					</form>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 </div>
 
-    <script type="text/javascript" src="http://localhost/penagihannative/js/jqueryslim.min.js" ></script>
-    <script type="text/javascript" src="http://localhost/penagihannative/js/popper.min.js" ></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+<script src="js/sweetalert2.all.min.js"></script>
 </body>
 </html>

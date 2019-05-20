@@ -85,7 +85,7 @@
         global $conn;
         mysqli_query($conn, "DELETE FROM komputer WHERE id = $id");
 
-        return mysqli_affected_rows($conn);
+        //return mysqli_affected_rows($conn);
     }
     
     function ubah($data) {
@@ -139,6 +139,8 @@
     function tambahdata($data) {
         global $conn;
         
+        $timezone = time() + (60 * 60 * 7);
+        $tanggal    = gmdate("Y-m-d H:i:s", $timezone);
         $npwp       = htmlspecialchars($data["npwp"]);
         $nama       = htmlspecialchars($data["nama"]); 
         $noberkas   = htmlspecialchars($data["norbk"]);
@@ -150,7 +152,7 @@
 
         $query = "INSERT INTO datarbk 
                         VALUES
-                        ('', '$noberkas','$npwp', '$nama', '$noruang', '$nobox', '$alamat', '$kelurahan','$keterangan')
+                        ('','$tanggal','$noberkas','$npwp', '$nama', '$noruang', '$nobox', '$alamat', '$kelurahan','$keterangan')
                     ";
         mysqli_query($conn, $query); 
 

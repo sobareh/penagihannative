@@ -40,7 +40,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SMART - Login</title>
-    <link rel="stylesheet" href="http://10.1.14.232/penagihannative/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <style>
             .body 
             {
@@ -132,11 +132,8 @@
 <div class="row">
     <div class="col-sm-6 col-md-4 col-md-offset-4 mt-5 mx-auto">
         <br><br>
-    <!-- <h1 class="text-center login-title">Login</h1> -->
         <div class="account-wall">
-        <h1 class="text-center mx-auto login-title"><img src="http://10.1.14.232/penagihannative/img/stumbleupon.png " class="ui image" width="80">&nbsp;Login</h1>
-            <!-- <img class="profile-img" src="http://10.1.14.232/penagihannative/img/stumbleupon.png"
-                alt=""> -->
+        <h1 class="text-center mx-auto login-title"><img src="img/stumbleupon.png " class="ui image" width="80">&nbsp;Login</h1>
             <form class="form-signin" action="login.php" method="post">
             <input type="text" class="form-control" placeholder="username" name="username" id="username" autocomplete="off" required>
             <input type="password" class="form-control" placeholder="password" name="password" id="password" required>
@@ -145,7 +142,6 @@
                 Login</button>
                 <br><br>
             </form>
-            <!-- <p>&copy; KPP Pratama Medan Barat 2019</p> -->
         </div>
         
     </div>

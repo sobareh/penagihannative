@@ -67,13 +67,18 @@
   <h1 class="display-4">Selamat Datang di Aplikasi SMART</h1>
   <p class="lead">Hallo <b><?php echo $datauser['username']?></b>, Selamat Datang Kembali di halaman aplikasi SMART </p>
   <hr class="my-4">
-  <p class="lead">Aplikasi yang dimaksudkan untuk mempermudah Pelaksana Seksi Penagihan dalam mencari dan mengupdate Data yang ada di Ruang Berkas Penagihan KPP Pratama Medan Barat.</p>
+  <p class="lead">Aplikasi yang dimaksudkan untuk mempermudah Pelaksana Seksi Penagihan dalam mencari dan mengupdate Data yang ada di <br> Ruang Berkas Penagihan KPP Pratama Medan Barat.</p>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
-
-    <script type="text/javascript" src="http://localhost/penagihannative/js/jqueryslim.min.js" ></script>
-    <script type="text/javascript" src="http://localhost/penagihannative/js/popper.min.js" ></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<div class="panel-group">
+<div class="panel panel-primary">
+      <div class="panel-heading">Panel with panel-primary class</div>
+      <div class="panel-body">Panel Content</div>
+    </div>
+</div>
+    <script type="text/javascript" src="http://localhost/penaghannative/js/jqueryslim.min.js" ></script>
+    <script type="text/javascript" src="http://localhost/penaghannative/js/popper.min.js" ></script>
+    <script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>

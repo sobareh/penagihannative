@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>SMART</title>
-
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
-    <!-- <script type="text/javascript" src="http://localhost/penagihannative/js/jquery.js"></script> -->
-    <script type="text/javascript" src="http://localhost/penagihannative/js/bootstrap.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-
-    <!-- <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css">
-    <script type="text/javascript" src="http://localhost/penagihannative/datatables/datatables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="datatables/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/> -->
-
-</head>
-
-<body>
-    <?php
+<?php
     
     session_start();
     include 'functions.php';
@@ -34,8 +8,26 @@
          exit;
      }
 	?>
+<!DOCTYPE html>
+<html>
 
-    <nav class="navbar fixed-top navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<head>
+    <title>SMART</title>
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+
+    <link rel="stylesheet" href="datatables/bootstrap.css" />
+    <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" />
+
+    <script src="datatables/jquery.min.js"></script>
+    <script src="datatables/jquery.dataTables.min.js"></script>
+    <script src="datatables/dataTables.bootstrap4.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
 
             <a class="navbar-brand" href="#"><img src="/smart/32.png" alt="" sizes="" srcset=""> SMART</a>
@@ -74,63 +66,121 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-3">
 
-        <div class="card mt-3">
+        <div class="card">
             <div class="card-body">
 
-                <h3>Data RBK</h3>
-                <p class="text-muted">Semua Data Ruang Berkas Penagihan</p>
-
+                <h3>Data RBK <small class="text-muted">Semua Data Ruang Berkas Penagihan</small> </h3>
                 <hr>
+                <div class="row">
+                    <div class="col-sm-12 mx-auto text-center">
+                    <a href="tambahdata.php" class="btn btn-success btn-sm mb-2 mx-auto" tabindex="-1" role="button"
+                        aria-disabled="true"><i class="fa fa-plus"></i> Tambah Data</a>
+                </div>
+                </div>
                 <div class="col-sm-12 table-responsive-sm">
-                <table class="table table-bordered table-hover table-striped table-saya">
-                    <thead class="thead-dark text-center">
-                        <tr >
-                            <th>No</th>
-                            <th>NPWP</th>
-                            <th>Nama Wajib Pajak</th>
-                            <th>No. RBK</th>
-                            <th>No. Ruang</th>
-                            <th>No. Box</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
+                    <table class="table table-sm table table-bordered table-hover table-striped table-saya">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>No</th>
+                                <th>NPWP</th>
+                                <th>Nama Wajib Pajak</th>
+                                <th>No. Ruang</th>
+                                <th>No. Box</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <?php
+                        <tbody>
+                <?php
 					$no = 1;
-					$data = query("SELECT * FROM datarbk");
+                    $data = query("SELECT * FROM datarbk");
 					foreach($data as $row){
-					?>
-                        <tr>
-                            <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $row["npwp"]; ?></td>
-                            <td><?= $row["nama"]; ?></td>
-                            <td><?= $row["norbk"]; ?></td>
-                            <td><?= $row["noruang"]; ?></td>
-                            <td><?= $row["nobox"]; ?></td>
-                            <td>
-                                <a class="btn btn-sm btn-info" href="detail.php?id=<?= $row["id"];?>"><i class="fas fa-file-alt"></i></a> 
-                                <a class="btn btn-sm btn-warning" href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a> 
-                                <a class="btn btn-sm btn-danger" href="hapus.php?id=<?= $row["id"]; ?>"
-                                    onclick="return confirm('Yakin Hapus Data?');"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <?php 
+                        $id = $row["id"];
+				?>
+                            <tr>
+                                <td class="text-center"><?= $no++; ?></td>
+                                <td><?= $row["npwp"]; ?></td>
+                                <td><?= $row["nama"]; ?></td>
+                                <td><?= $row["noruang"]; ?></td>
+                                <td><?= $row["nobox"]; ?></td>
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-info" title="Detail Data"
+                                        href="detail.php?id=<?= $row["id"];?>"><i class="fas fa-file-alt"></i></a>
+                                    <a class="btn btn-sm btn-warning tombol-uba" title="Ubah Data"
+                                        href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-sm btn-danger" id="delete_product" title="Hapus Data"
+                                        data-id="<?= $id; ?>" href="javascript:void(0)"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                            <?php 
 					}
 					?>
-                    </tbody>
-                    <script type="text/javascript">
-                      $(document).ready(function () {
-                    $(".table-saya").DataTable(); }) </script>
-                </table>
+                        </tbody>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $(".table-saya").DataTable();
+                            })
+                        </script>
+                    </table>
                 </div>
             </div>
         </div>
 
     </div>
-
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="sweetalertfunction.js"></script>
+    <script>
+            $(document).ready(function(){
+            
+            // readProducts(); /* it will load products when document loads */
+            
+            $(document).on('click', '#delete_product', function(e){
+                
+                var productId = $(this).data('id');
+                SwalDelete(productId);
+                e.preventDefault();
+            });
+            
+        });
+        function SwalDelete(productId){
+		
+		swal({
+			title: 'Are you sure?',
+			text: "It will be deleted permanently!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!',
+			showLoaderOnConfirm: true,
+			  
+			preConfirm: function() {
+			  return new Promise(function(resolve) {
+			       
+			     $.ajax({
+			   		url: 'hapus.php',
+			    	type: 'POST',
+			       	data: 'hapus='+productId,
+			       	dataType: 'json'
+			     })
+			     .done(function(response){
+                     swal('Deleted!', response.message, response.status);
+                     readProducts();
+                 })
+			     .fail(function(){
+			     	swal('Oops...', 'Something went wrong with ajax !', 'error');
+                 });
+			  });
+		    },
+			allowOutsideClick: false			  
+		});	
+    }
+   function readProducts(){
+    $('html').delay(3000).reload();	
+	}
+    </script>
 </body>
 
 </html>

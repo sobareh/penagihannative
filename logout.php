@@ -4,6 +4,7 @@
     session_unset();
     session_destroy();
 
-        header("Location: login.php");
+    echo '<script language="javascript">alert("Anda berhasil Logout!"); document.location="index.php";</script>';
+        //header("Location: login.php");
         exit;
 ?>
