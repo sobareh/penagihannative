@@ -101,12 +101,11 @@
         </div>
     </div>
     <script src="js/jqueryslim.min.js"></script>
-    <script src="js/popper.min.js"></script>
+    <script src="http://10.1.14.232/penagihannative/js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.inputmask.bundle.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
-    <script src="sweetalertfunction.js"></script>
     <script>
         $(document).ready(function () {
             $('#npwp').inputmask('999999999-999.999');

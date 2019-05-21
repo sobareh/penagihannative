@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
 
-    <link rel="stylesheet" href="datatables/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" />
 
     <script src="datatables/jquery.min.js"></script>
@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
 
-            <a class="navbar-brand" href="#"><img src="/smart/32.png" alt="" sizes="" srcset=""> SMART</a>
+            <a class="navbar-brand" href="index.php"><img src="/smart/32.png" alt="" sizes="" srcset=""> SMART</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
