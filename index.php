@@ -64,7 +64,7 @@
 
 <div class="container jumbotron mt-5">
   <h1 class="display-4">Selamat Datang di Aplikasi SMART</h1>
-  <p class="lead">Hallo <b><?php echo $datauser['username']?></b>, Selamat Datang Kembali di halaman aplikasi SMART </p>
+  <p class="lead">Hallo, Selamat Datang Kembali di halaman aplikasi SMART </p>
   <hr class="my-4">
   <p class="lead">Aplikasi yang dimaksudkan untuk mempermudah Pelaksana Seksi Penagihan dalam mencari dan mengupdate Data yang ada di Ruang Berkas Penagihan KPP Pratama Medan Barat.</p>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>

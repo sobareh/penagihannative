@@ -99,8 +99,8 @@
                         $id = $row["id"];
 				?>
                             <tr>
-                                <td class="text-center"><?= $no++; ?></td>
-                                <td><?= $row["npwp"]; ?></td>
+                                <td class="text-center" width="5%"><?= $no++; ?></td>
+                                <td class="text-center" width="10%"><?= $row["npwp"]; ?></td>
                                 <td><?= $row["nama"]; ?></td>
                                 <td><?= $row["noruang"]; ?></td>
                                 <td><?= $row["nobox"]; ?></td>
