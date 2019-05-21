@@ -42,8 +42,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SMART | Home</title>
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
-    <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.css">
-    <link rel="stylesheet" href="http://localhost/penagihannative/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style></style>
 </head>
 
@@ -100,11 +100,11 @@
             </div>
         </div>
     </div>
-    <script src="http://localhost/penagihannative/js/jqueryslim.min.js"></script>
-    <script src="http://localhost/penagihannative/js/popper.min.js"></script>
-    <script src="http://localhost/penagihannative/js/bootstrap.min.js"></script>
-    <script src="http://localhost/penagihannative/js/jquery.js"></script>
-    <script src="http://localhost/penagihannative/js/jquery.inputmask.bundle.js"></script>
+    <script src="js/jqueryslim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.inputmask.bundle.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="sweetalertfunction.js"></script>
     <script>

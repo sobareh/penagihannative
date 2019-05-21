@@ -11,7 +11,7 @@
 		
 		if ($_POST['hapus']) {
 			
-			require_once 'functions2.php';
+			require_once 'ajax_configsweetalert.php';
 			
 			$pid = intval($_POST['hapus']);
 			$query = "DELETE FROM datarbk WHERE id=:pid";

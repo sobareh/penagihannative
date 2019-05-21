@@ -12,7 +12,7 @@
 <html>
 
 <head>
-    <title>SMART</title>
+    <title>SMART | Datatable</title>
 
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
@@ -39,8 +39,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Dashboard <span
-                                class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="datatable.php"><i class="fa fa-users"></i> Data RBK Penagihan</a>

@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SMART | Home</title>
+    <title>SMART | Ganti Password</title>
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
     <link rel="stylesheet" href="/penagihannative/css/bootstrap.css">
     <link rel="stylesheet" href="/penagihannative/css/bootstrap.min.css">
@@ -73,7 +73,7 @@
 					?>
 
 					<h3>Ganti Password</h3>
-					<p class="text-muted">Ganti Password Admin</p>
+					<p class="text-muted">Ganti Password User</p>
 
 					<hr>
 
@@ -96,7 +96,5 @@
 	</div>
 
 </div>
-
-<script src="js/sweetalert2.all.min.js"></script>
 </body>
 </html>

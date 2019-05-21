@@ -10,7 +10,6 @@
     $username = 910222897 ;
     $data = mysqli_query($conn,"SELECT * FROM user where username = $username");
     $datauser = mysqli_fetch_assoc($data);
-    // var_dump($data);
     
 ?>
 <!DOCTYPE html>
@@ -22,8 +21,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SMART | Home</title>
     <link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
-    <link rel="stylesheet" href="/penagihannative/css/bootstrap.css">
-    <link rel="stylesheet" href="/penagihannative/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style></style>
 </head>
 <body class="">
@@ -71,8 +70,8 @@
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
-    <script type="text/javascript" src="http://localhost/penagihannative/js/jqueryslim.min.js" ></script>
-    <script type="text/javascript" src="http://localhost/penagihannative/js/popper.min.js" ></script>
+    <script type="text/javascript" src="js/jqueryslim.min.js" ></script>
+    <script type="text/javascript" src="js/popper.min.js" ></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </body>
