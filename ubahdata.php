@@ -15,8 +15,6 @@
 
     //query data mahasiswa  berdasarkan id
     $data = query("SELECT * FROM datarbk WHERE id = $id")[0];
-    // var_dump($data);
-    // die;
 
      if( isset($_POST["submit"]) ) {
             //cek apakah data berhasil diubah atau tidak
@@ -47,7 +45,7 @@
     <style></style>
 </head>
 
-<body class="">
+<body>
     <div class="container-fluid mt-2 text-center">
         <div class="card col-md-6 mt-3 text-justify mx-auto">
             <div class="card-body">

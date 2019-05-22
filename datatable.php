@@ -105,8 +105,8 @@
                                 <td><?= $row["noruang"]; ?></td>
                                 <td><?= $row["nobox"]; ?></td>
                                 <td class="text-center">
-                                    <a class="btn btn-sm btn-info" title="Detail Data"
-                                        href="detail.php?id=<?= $row["id"];?>"><i class="fas fa-file-alt"></i></a>
+                                    <a class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Detail Data"
+                                        href="detail.php?id=<?= $row["id"];?>&npwp=<?= $row['npwp'];?>"><i class="fas fa-file-alt"></i></a>
                                     <a class="btn btn-sm btn-warning tombol-uba" title="Ubah Data"
                                         href="ubahdata.php?id=<?= $row["id"];?>"><i class="fas fa-edit"></i></a>
                                     <a class="btn btn-sm btn-danger notif" id="delete_product" title="Hapus Data"

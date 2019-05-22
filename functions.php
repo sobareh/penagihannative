@@ -14,20 +14,21 @@
     function tambah($data) {
         global $conn;
         
-        $sn     = htmlspecialchars($data["sn"]);
-        $merek  = htmlspecialchars($data["merek"]);
-        $model  = htmlspecialchars($data["model"]);
-        $email  = htmlspecialchars($data["email"]);
+        $timezone       = time() + (60 * 60 * 7);
+        $tanggalBerkas  = gmdate("Y-m-d H:i:s", $timezone);
+        $npwp           = htmlspecialchars($data["npwp"]);
+        $namawp         = htmlspecialchars($data["namawp"]);
+        $namaData       = htmlspecialchars($data["namaData"]);
 
         //upload gambar
-        $gambar = upload();
-        if( !$gambar ) {
+        $dokumen = upload();
+        if( !$dokumen ) {
             return false;
         }
 
-        $query = "INSERT INTO komputer 
+        $query = "INSERT INTO berkasrbk 
                         VALUES
-                        ('', '$sn', '$merek', '$model', '$email', '$gambar')
+                        ('', '$tanggalBerkas', '$npwp', '$namawp', '$namaData', '$dokumen')
                     ";
         mysqli_query($conn, $query); 
 
@@ -36,10 +37,10 @@
 
     function upload() {
         
-        $namaFile   = $_FILES['gambar']['name'];
-        $ukuranFile = $_FILES['gambar']['size'];
-        $error      = $_FILES['gambar']['error'];
-        $tmpName    = $_FILES['gambar']['tmp_name'];
+        $namaFile   = $_FILES['dokumen']['name'];
+        $ukuranFile = $_FILES['dokumen']['size'];
+        $error      = $_FILES['dokumen']['error'];
+        $tmpName    = $_FILES['dokumen']['tmp_name'];
 
         //cek apakah tidak ada yang diapload
         if( $error === 4 ) {
@@ -50,20 +51,20 @@
         }
 
         //yang diapload file apa? safety apa enggax
-        $ekstensiValid = ['jpg','jpeg','png','pdf'];
+        $ekstensiValid = ['pdf', 'rar'];
         $ekstensiFile = explode('.', $namaFile);
         $ekstensiFile = strtolower(end($ekstensiFile));
         if( !in_array($ekstensiFile, $ekstensiValid) ) {
             echo "<script>
-                        alert('data yang di aplod tidak diperkenankan, pastikan ekstensi file pdf jpg jpeg atau png.');
+                        alert('data yang di aplod tidak diperkenankan, pastikan ekstensi file .pdf atau .rar.');
                   </script>";
             return false;
         }
 
         //cek jika ukurannya terlalu besar
-        if( $ukuranFile > 2097152 ) {
+        if( $ukuranFile > 3145728 ) {
             echo "<script>
-            alert('ukuran gambarnya kegedean, maksimal 2mb ya!');
+            alert('ukuran gambarnya kegedean, maksimal 3mb ya!');
                 </script>";
             return false;
         }
