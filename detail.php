@@ -139,7 +139,6 @@
     </div>
     <div class="card">
       <div class="card-body">
-
         <h3>File Scan yang telah di Upload</h3>
         <hr>
         <div class="row">
@@ -154,25 +153,24 @@
                 <th>Aksi</th>
               </tr>
             </thead>
-
             <tbody>
-              <?php
-              
-                $no = 1;
-                foreach($berkas as $row1):
-              ?>
+          <?php
+            $no = 1;
+            foreach($berkas as $row1):
+          ?>
               <tr>
                 <td class="text-center" width="5%"><?= $no++; ?></td>
                 <td><?= $row1['namadata']; ?></td>
                 <td class="text-center"><?= $row1['lastdate']; ?></td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-info" title="Download File"
-                    href="http://10.1.14.232/penagihannative/img/<?php echo $row1['dokumen'] ;?>"><i class="fas fa-download"></i></a>
+                    href="http://10.1.14.232/penagihannative1/img/<?php echo $row1['dokumen'] ;?>" target="blank"><i
+                      class="fas fa-download"></i></a>
                 </td>
               </tr>
-              <?php 
-                endforeach;
-              ?>
+          <?php 
+            endforeach;
+          ?>
             </tbody>
             <script type="text/javascript">
               $(document).ready(function () {
