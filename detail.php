@@ -161,10 +161,12 @@
               <tr>
                 <td class="text-center" width="5%"><?= $no++; ?></td>
                 <td><?= $row1['namadata']; ?></td>
-                <td class="text-center"><?= $row1['lastdate']; ?></td>
+                <td class="text-center"><?php
+                                          $tanggal = date('d-m-Y H:i:s', strtotime($row1['lastdate']));
+                                           echo $tanggal; ?></td>
                 <td class="text-center">
                   <a class="btn btn-sm btn-info" title="Download File"
-                    href="http://10.1.14.232/penagihannative1/img/<?php echo $row1['dokumen'] ;?>" target="blank"><i
+                    href="http://10.1.14.232/penagihannative1/img/<?php echo $row1['dokumen']; ?>" target="blank"><i
                       class="fas fa-download"></i></a>
                 </td>
               </tr>
